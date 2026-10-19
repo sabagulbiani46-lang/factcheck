@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ფაქტჩეკერი — სანამ დაიჯერებ, გადაამოწმე</title>
+  <meta name="description" content="მედიაწიგნიერების საგანმანათლებლო პროექტი: შეამოწმე მტკიცებები, გაეცანი სანდო წყაროებს და ისწავლე ინფორმაციის გადამოწმება.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230b6e75'/%3E%3Cpath d='M9 16.5l4.5 4.5L23 11' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#check">გადასვლა შემოწმებაზე</a>
+
+  <!-- ===== ჰედერი ===== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#home" aria-label="ფაქტჩეკერი — მთავარი">
+        <svg class="brand-icon" viewBox="0 0 32 32" aria-hidden="true">
+          <rect width="32" height="32" rx="9" fill="#0b6e75"/>
+          <circle cx="14" cy="14" r="6" fill="none" stroke="#fff" stroke-width="2.4"/>
+          <path d="M10.8 14l2.2 2.2 4-4.2M19 19l5 5" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>ფაქტჩეკერი</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav">მენიუ</button>
+      <nav id="main-nav" class="main-nav" aria-label="მთავარი ნავიგაცია">
+        <ul>
+          <li><a href="#home">მთავარი</a></li>
+          <li><a href="#check">ფაქტების შემოწმება</a></li>
+          <li><a href="#how">როგორ მუშაობს</a></li>
+          <li><a href="#literacy">მედიაწიგნიერება</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== ჰიროს სექცია + შემოწმების ფორმა ===== -->
+    <section id="home" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <p class="kicker">მედიაწიგნიერების საგანმანათლებლო პროექტი</p>
+          <h1>ინფორმაციას ნუ დაიჯერებ გადამოწმების გარეშე</h1>
+          <p class="lead">შეამოწმე მტკიცებები, გაეცანი სანდო წყაროებს და ისწავლე, როგორ გაარჩიო ფაქტი დეზინფორმაციისგან.</p>
+        </div>
+
+        <div id="check" class="checker" tabindex="-1">
+          <form id="claim-form" novalidate>
+            <label for="claim-input" class="checker-label">შეიყვანე ფაქტობრივი მტკიცება</label>
+            <p id="claim-hint" class="hint">დაწერე ერთი მტკიცება, რომლის გადამოწმებაც გინდა, ან აირჩიე მაგალითი ქვემოდან. ვამოწმებთ მხოლოდ ჩვენს მცირე ბაზაში არსებულ მტკიცებებს.</p>
+            <textarea id="claim-input" name="claim" rows="3" maxlength="400" aria-describedby="claim-hint claim-error" placeholder="მაგ.: ადამიანები ტვინის მხოლოდ 10%-ს იყენებენ."></textarea>
+            <p id="claim-error" class="error" role="alert" hidden></p>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">გადაამოწმე</button>
+              <button type="button" id="clear-btn" class="btn btn-ghost">გასუფთავება</button>
+            </div>
+          </form>
+          <div class="examples">
+            <p class="examples-title">სცადე მაგალითი:</p>
+            <ul id="example-list" class="chip-list"></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== შედეგის არეალი ===== -->
+    <section class="container result-wrap" aria-labelledby="result-heading">
+      <h2 id="result-heading" class="visually-hidden">შემოწმების შედეგი</h2>
+      <div id="result" aria-live="polite" tabindex="-1"></div>
+    </section>
+
+    <!-- ===== როგორ მუშაობს ===== -->
+    <section id="how" class="section">
+      <div class="container">
+        <h2>როგორ მუშაობს ეს საიტი?</h2>
+        <div class="two-col">
+          <div>
+            <p>ფაქტჩეკერი <strong>არ ეძებს ინტერნეტში</strong> და არ იყენებს ხელოვნურ ინტელექტს. მას აქვს ხელით შედგენილი მცირე ბაზა რვა მტკიცებით. შენი ტექსტი შედარდება ამ ბაზას, და თუ ზუსტ ან ძალიან მსგავს ფორმულირებას იპოვის, გაჩვენებს წინასწარ მომზადებულ განმარტებას და წყაროებს.</p>
+            <p>თუ მტკიცება ბაზაში არ არის, საიტი <strong>არ გასცემს დასკვნას</strong>. ბაზაში არყოფნა არ ნიშნავს, რომ მტკიცება მცდარია ან სწორია.</p>
+          </div>
+          <div>
+            <h3>ოთხი დასკვნა</h3>
+            <ul class="legend" id="legend"></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== მედიაწიგნიერება: 5 ნაბიჯი ===== -->
+    <section id="literacy" class="section section-tint">
+      <div class="container">
+        <h2>როგორ გადაამოწმო ინფორმაცია?</h2>
+        <p class="section-lead">ხუთი პრაქტიკული ნაბიჯი, რომელიც ნებისმიერ ახალ ამბას შეგიძლია გამოუყენო.</p>
+        <ol class="steps" id="steps-list"></ol>
+        <p class="note-line">დამატებითი რესურსები ქართულად: <a href="https://mythdetector.ge/ka" target="_blank" rel="noopener noreferrer">მითების დეტექტორი</a> და <a href="https://factcheck.ge/ka/" target="_blank" rel="noopener noreferrer">FactCheck Georgia</a> (გახსნა ახალ ჩანართში).</p>
+      </div>
+    </section>
+
+    <!-- ===== ქვიზი ===== -->
+    <section id="quiz" class="section">
+      <div class="container quiz-container">
+        <h2>შეამოწმე შენი ცოდნა</h2>
+        <div id="quiz" class="quiz-card" aria-live="polite"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== ფუტერი ===== -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <p class="footer-title">ფაქტჩეკერი — სანამ დაიჯერებ, გადაამოწმე</p>
+        <p>სასწავლო პროექტი, რომლის მიზანია მოსწავლეებს დაეხმაროს ინფორმაციის გადამოწმებაში, წყაროების შეფასებასა და კრიტიკულ აზროვნებაში.</p>
+      </div>
+      <div>
+        <p class="footer-title">გაითვალისწინე</p>
+        <ul>
+          <li>ეს საიტი ამოწმებს მხოლოდ წინასწარ შედგენილ მტკიცებებს და არ არის ცოცხალი ფაქტჩეკინგის სერვისი.</li>
+          <li>ბაზაში არყოფნა არ ნიშნავს, რომ მტკიცება მცდარია.</li>
+          <li>მნიშვნელოვან საკითხებზე გადაამოწმე პირველწყაროები და მიმართე კვალიფიციურ სპეციალისტს.</li>
+          <li>პროექტი დამოუკიდებელია და არ არის დაკავშირებული რომელიმე სახელმწიფო უწყებასთან ან კონკურსის ორგანიზატორთან.</li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
